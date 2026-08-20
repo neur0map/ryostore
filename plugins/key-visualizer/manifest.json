@@ -1,0 +1,147 @@
+{
+  "schema": 1,
+  "id": "key-visualizer",
+  "category": "plugins",
+  "version": "0.1.0",
+  "destination": "ryoku/plugins/key-visualizer",
+  "name": "Key Visualizer",
+  "author": "Himanshu <manshu3220@gmail.com>",
+  "description": "Shows the keys you press on screen with configurable layout, linger, and history.",
+  "license": "MIT",
+  "tags": [
+    "keyboard",
+    "keys",
+    "overlay",
+    "hyprland",
+    "topbarGlyph"
+  ],
+  "official": false,
+  "entryPoints": {
+    "main": "service/Main.qml",
+    "content": "content/Widget.qml"
+  },
+  "capabilities": {
+    "densities": [
+      "glyph"
+    ]
+  },
+  "hosts": [
+    "topbarGlyph"
+  ],
+  "defaults": {
+    "host": "topbarGlyph",
+    "icon": "keyboard",
+    "label": "Key Visualizer"
+  },
+  "metadata": {
+    "settings": [
+      {
+        "key": "paused",
+        "type": "toggle",
+        "label": "Pause display",
+        "group": "General",
+        "default": false
+      },
+      {
+        "key": "position",
+        "type": "choice",
+        "label": "Screen position",
+        "group": "Display",
+        "default": "bottom-center",
+        "options": [
+          {
+            "value": "bottom-center",
+            "label": "Bottom Center"
+          },
+          {
+            "value": "bottom-left",
+            "label": "Bottom Left"
+          },
+          {
+            "value": "bottom-right",
+            "label": "Bottom Right"
+          },
+          {
+            "value": "top-center",
+            "label": "Top Center"
+          },
+          {
+            "value": "top-left",
+            "label": "Top Left"
+          },
+          {
+            "value": "top-right",
+            "label": "Top Right"
+          }
+        ]
+      },
+      {
+        "key": "margin",
+        "type": "slider",
+        "label": "Screen margin (px)",
+        "group": "Display",
+        "default": 67,
+        "min": 10,
+        "max": 200,
+        "step": 1,
+        "decimals": 0
+      },
+      {
+        "key": "lingerMs",
+        "type": "slider",
+        "label": "Linger duration (ms)",
+        "group": "Behavior",
+        "default": 1000,
+        "min": 0,
+        "max": 5000,
+        "step": 100,
+        "decimals": 0
+      },
+      {
+        "key": "historyCount",
+        "type": "slider",
+        "label": "History stack count",
+        "group": "Behavior",
+        "default": 1,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "decimals": 0
+      }
+    ]
+  },
+  "files": [
+    {
+      "source": "assets/preview-widget.png",
+      "destination": "assets/preview-widget.png",
+      "mode": "0644",
+      "size": 5808,
+      "sha256": "ae3d52ea7c07c1a4687f6e8fc3849a8041f7ae690a298748d3dbc8f621752f6f",
+      "install": false
+    },
+    {
+      "source": "content/Widget.qml",
+      "destination": "content/Widget.qml",
+      "mode": "0644",
+      "size": 2464,
+      "sha256": "23e263873dfdecb6e9ef7e627e1ceb8e7910ead5e035b10fada74fae8a0f44e9",
+      "install": true
+    },
+    {
+      "source": "key-visualizer.lua",
+      "destination": "key-visualizer.lua",
+      "mode": "0644",
+      "size": 5069,
+      "sha256": "19cd2a778b2cbfdb6a957e0848b467c9570d441327612df32da47cf83f7b76ba",
+      "install": true
+    },
+    {
+      "source": "service/Main.qml",
+      "destination": "service/Main.qml",
+      "mode": "0644",
+      "size": 11958,
+      "sha256": "43fabb7c94ff440c2457dd8af697db79194fc3bf043d93695915f09f4eb07e83",
+      "install": true
+    }
+  ]
+}

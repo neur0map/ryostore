@@ -34,6 +34,37 @@
       "lastUpdated": "2026-08-12"
     },
     {
+      "id": "key-visualizer",
+      "name": "Key Visualizer",
+      "version": "0.1.0",
+      "path": "plugins/key-visualizer",
+      "author": "Himanshu",
+      "summary": "Shows the keys you press on screen in a customizable overlay.",
+      "description": "A topbar-glyph plugin and screen overlay for Hyprland that displays real-time keyboard presses and shortcuts on screen. Features configurable screen positioning (corners/center), margin, linger duration, and chord history stack, with a topbar icon to quickly toggle or pause display.",
+      "tags": [
+        "keyboard",
+        "keys",
+        "overlay",                                                                                                                  
+        "hyprland",                                                                                                                 
+        "topbarGlyph"                                                                                                               
+      ],                                                                                                                            
+      "accent": "#38bdf8",                                                                                                          
+      "surface": "#101010",                                                                                                         
+      "preview": "assets/preview-widget.png",                                                                                       
+      "screenshots": [                                                                                                              
+        "assets/preview-widget.png"                                                                                                 
+      ],                                                                                                                            
+      "manifest": "product-manifest.json",                                                                                          
+      "manifestSha256": "dec73cf3b39ec45b0e0ed3ce07f124d24ec42a6e3de4867552a9aeacf84ab7a8",                                         
+      "official": false,                                                                                                            
+      "tagline": "Shows the keys you press on screen in a customizable overlay.",                                                   
+      "icon": "keyboard",                                                                                                           
+      "hosts": [                                                                                                                    
+        "topbarGlyph"                                                                                                               
+      ],                                                                                                                            
+      "lastUpdated": "2026-08-20"                                                                                                   
+    },
+    {
       "id": "market",
       "name": "Market",
       "version": "1.1.1",
