@@ -1,0 +1,187 @@
+{
+  "id": "emoji",
+  "name": "Emoji",
+  "version": "1.1.0",
+  "author": "hypruser <hypruser@users.noreply.github.com>",
+  "description": "A keyboard-first emoji picker: search, arrow-key selection with paging and wrapping, and a one-key pick that copies or inserts any emoji. A placeable frame popout that ships its own 3,900+ emoji catalogue, themes with the wallpaper, and recolours its frame with the active theme.",
+  "license": "MIT",
+  "tags": [
+    "emoji",
+    "clipboard",
+    "search",
+    "productivity",
+    "frame-popout"
+  ],
+  "official": false,
+  "entryPoints": {
+    "main": "service/Main.qml",
+    "content": "content/Widget.qml"
+  },
+  "files": [
+    {
+      "source": "assets/preview-popout.png",
+      "destination": "assets/preview-popout.png",
+      "mode": "0644",
+      "size": 157786,
+      "sha256": "0cbd2438d3d78a805cad351d28a72d0f237acaa74882b40224c665be6fc03e26",
+      "install": false
+    },
+    {
+      "source": "bin/ryoku-emoji",
+      "destination": "bin/ryoku-emoji",
+      "mode": "0755",
+      "size": 1726,
+      "sha256": "9e07a4dac9d35bdabf130124cad311f4f87558aff540daef15dcde4919dc4b57",
+      "install": true
+    },
+    {
+      "source": "content/components/Chip.qml",
+      "destination": "content/components/Chip.qml",
+      "mode": "0644",
+      "size": 1274,
+      "sha256": "7a35788c9241db4c6282553b2bb8c702f3c571412b214ff4bed9cde7a774186c",
+      "install": true
+    },
+    {
+      "source": "content/Widget.qml",
+      "destination": "content/Widget.qml",
+      "mode": "0644",
+      "size": 22559,
+      "sha256": "5dd0b2b224e281687648d2c08005571f27aadf48e64fccfe88dda6fe21cf52e0",
+      "install": true
+    },
+    {
+      "source": "data/emojis.json",
+      "destination": "data/emojis.json",
+      "mode": "0644",
+      "size": 237560,
+      "sha256": "6295940498d1563c85365ec155700ca7b274cbb3b964f75076840f5b1b4b92c6",
+      "install": true
+    },
+    {
+      "source": "service/Main.qml",
+      "destination": "service/Main.qml",
+      "mode": "0644",
+      "size": 5360,
+      "sha256": "9b6d034eb58385bf35991d751ae06e4996e3e5f4709ad5666f9a52ca8b150323",
+      "install": true
+    }
+  ],
+  "commands": [
+    "bin/ryoku-emoji"
+  ],
+  "dependencies": {
+    "commands": [
+      "wl-copy",
+      "wtype"
+    ]
+  },
+  "capabilities": {
+    "densities": [
+      "glyph",
+      "compact",
+      "full"
+    ]
+  },
+  "hosts": [
+    "framePopout"
+  ],
+  "defaults": {
+    "host": "framePopout",
+    "framePopout": {
+      "edge": "bottom",
+      "align": "center"
+    },
+    "icon": "extension",
+    "label": "Emoji"
+  },
+  "metadata": {
+    "settings": [
+      {
+        "key": "action",
+        "type": "choice",
+        "label": "On pick",
+        "group": "Behaviour",
+        "default": "copy",
+        "options": [
+          {
+            "value": "copy",
+            "label": "Copy to clipboard"
+          },
+          {
+            "value": "insert",
+            "label": "Type into the window behind"
+          },
+          {
+            "value": "both",
+            "label": "Insert and copy"
+          }
+        ]
+      },
+      {
+        "key": "closeAfterPick",
+        "type": "toggle",
+        "label": "Close after picking",
+        "group": "Behaviour",
+        "default": false
+      },
+      {
+        "key": "resetOnOpen",
+        "type": "toggle",
+        "label": "Start fresh on open",
+        "group": "Behaviour",
+        "default": true
+      },
+      {
+        "key": "columns",
+        "type": "slider",
+        "label": "Grid columns",
+        "group": "Grid",
+        "default": 8,
+        "min": 4,
+        "max": 16,
+        "step": 1,
+        "decimals": 0
+      },
+      {
+        "key": "rows",
+        "type": "slider",
+        "label": "Visible rows",
+        "group": "Grid",
+        "default": 5,
+        "min": 2,
+        "max": 10,
+        "step": 1,
+        "decimals": 0
+      },
+      {
+        "key": "cellSize",
+        "type": "slider",
+        "label": "Cell size",
+        "group": "Grid",
+        "default": 44,
+        "min": 24,
+        "max": 72,
+        "step": 1,
+        "decimals": 0
+      },
+      {
+        "key": "showGroupChips",
+        "type": "toggle",
+        "label": "Show category chips",
+        "group": "Display",
+        "default": true
+      },
+      {
+        "key": "showHint",
+        "type": "toggle",
+        "label": "Show hints and counters",
+        "group": "Display",
+        "default": true
+      }
+    ]
+  },
+  "schema": 1,
+  "category": "plugins",
+  "destination": "ryoku/plugins/emoji"
+}

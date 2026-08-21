@@ -123,6 +123,37 @@
         "desktopWidget"
       ],
       "lastUpdated": "2026-08-12"
+    },
+    {
+      "id": "emoji",
+      "name": "Emoji",
+      "version": "1.1.0",
+      "path": "plugins/emoji",
+      "author": "hypruser",
+      "summary": "A keyboard-first emoji picker with search and arrow-key selection.",
+      "description": "A frame popout that lists every emoji, searchable by name and keyword, with arrow-key selection and a one-key pick: copy to the clipboard or type into the focused window. Loads its own 3,900+ item catalogue, themes with the wallpaper, and shows per-group counts.",
+      "tags": [
+        "emoji",
+        "clipboard",
+        "search",
+        "productivity",
+        "frame-popout"
+      ],
+      "accent": "#fbbf24",
+      "surface": "#101010",
+      "preview": "assets/preview-popout.png",
+      "screenshots": [
+        "assets/preview-popout.png"
+      ],
+      "manifest": "product-manifest.json",
+      "manifestSha256": "8a4f212d8382f6691db9d5a8385b826c493b0c813e35490bf17e8fca09420b44",
+      "official": false,
+      "tagline": "Search and pick any emoji from your keyboard.",
+      "icon": "emoji_emotions",
+      "hosts": [
+        "framePopout"
+      ],
+      "lastUpdated": "2026-08-20"
     }
   ]
 }

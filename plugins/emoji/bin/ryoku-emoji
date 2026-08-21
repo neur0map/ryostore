@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# ryoku-emoji -- copy and/or insert an emoji. Compositor-independent by design:
+# it only ever talks to the Wayland clipboard (wl-copy) or the virtual-keyboard
+# protocol (wtype), never to a compositor's private IPC. Works on Hyprland,
+# niri, sway, river, and any other Wayland compositor with these tools.
+#
+#   ryoku-emoji copy        <emoji>  put the emoji on the clipboard
+#   ryoku-emoji insert      <emoji>  type the emoji into the focused window
+#   ryoku-emoji both        <emoji>  put it on the clipboard AND type it
+#
+# The service closes the picker before calling "insert"/"both" so the popout's
+# search box is not the focused surface when wtype runs - the emoji lands in
+# the window the user was actually typing into.
+set -euo pipefail
+
+mode="${1:-copy}"
+emoji="${2:-}"
+
+case "$mode" in
+  copy)
+    if ! command -v wl-copy >/dev/null 2>&1; then
+      echo "ryoku-emoji: wl-copy is required" >&2
+      exit 1
+    fi
+    printf '%s' "$emoji" | wl-copy --type text/plain
+    ;;
+  insert)
+    if command -v wtype >/dev/null 2>&1; then
+      wtype "$emoji" >/dev/null 2>&1 || true
+    else
+      echo "ryoku-emoji: wtype is required to insert" >&2
+      exit 1
+    fi
+    ;;
+  both)
+    ok=1
+    if command -v wl-copy >/dev/null 2>&1; then
+      printf '%s' "$emoji" | wl-copy --type text/plain
+    else
+      echo "ryoku-emoji: wl-copy is required (copied nothing)" >&2
+      ok=0
+    fi
+    if command -v wtype >/dev/null 2>&1; then
+      wtype "$emoji" >/dev/null 2>&1 || true
+    else
+      echo "ryoku-emoji: wtype is required (typed nothing)" >&2
+      ok=0
+    fi
+    [ "$ok" -eq 1 ] || exit 1
+    ;;
+  *)
+    echo "usage: ryoku-emoji {copy|insert|both} <emoji>" >&2
+    exit 2
+    ;;
+esac
