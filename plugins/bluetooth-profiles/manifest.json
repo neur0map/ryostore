@@ -1,0 +1,72 @@
+{
+  "id": "bluetooth-profiles",
+  "name": "Bluetooth Profiles",
+  "version": "1.0.0",
+  "author": "Matthias <derntl@daim.tech>",
+  "description": "Quickly view and switch Bluetooth audio profiles and codecs of connected devices.",
+  "license": "MIT",
+  "official": false,
+  "hosts": [
+    "topbarGlyph"
+  ],
+  "entryPoints": {
+    "main": "service/Main.qml",
+    "content": "content/Widget.qml",
+    "panel": "content/Panel.qml"
+  },
+  "panel": {
+    "width": 320
+  },
+  "files": [
+    "assets/preview-widget.png",
+    "preview.qml"
+  ],
+  "capabilities": {
+    "densities": [
+      "glyph",
+      "compact"
+    ]
+  },
+  "defaults": {
+    "host": "topbarGlyph",
+    "icon": "bluetooth",
+    "label": "Bluetooth Profiles"
+  },
+  "dependencies": {
+    "commands": [
+      "pactl"
+    ]
+  },
+  "metadata": {
+    "settings": [
+      {
+        "key": "barBadge",
+        "type": "choice",
+        "label": "Beside the mark",
+        "group": "Appearance",
+        "default": "codec",
+        "options": [
+          {
+            "value": "codec",
+            "label": "Active codec (e.g. AAC, HFP)"
+          },
+          {
+            "value": "count",
+            "label": "Device count (e.g. 1)"
+          },
+          {
+            "value": "none",
+            "label": "Nothing (Icon only)"
+          }
+        ]
+      },
+      {
+        "key": "autoExpand",
+        "type": "toggle",
+        "label": "Always expand profiles by default",
+        "group": "Appearance",
+        "default": true
+      }
+    ]
+  }
+}
